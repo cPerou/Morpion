@@ -2,6 +2,8 @@ package classes;
 
 import enumeration.typeJoueur;
 
+import java.util.ArrayList;
+
 public class Joueur {
     private boolean peutJouer;
     private typeJoueur joueur;
@@ -16,7 +18,7 @@ public class Joueur {
     public void setPeutJouer(boolean peutJouer) {this.peutJouer = peutJouer;}
     //methode
     public void joue(Case caseAJouer, String leJoueur){
-        caseAJouer.setUtilise(true);
+        //change attributs de la case
         caseAJouer.setQuelJoueur(leJoueur);
         this.peutJouer = false;
     }
