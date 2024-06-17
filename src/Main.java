@@ -5,7 +5,6 @@ import interfaces.regleJeu;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String... args){
@@ -32,7 +31,7 @@ public class Main {
             System.out.println("Après tirage au sort,");
             System.out.println(nomJoueur1+" est le premier joueur à jouer");
 
-            for (int i=1;i<10;i++){
+            for (int i=1;i<5;i++){
                 for (int j=1;j<2;j++){
                     System.out.println("Joueur "+joueur1.getJoueur()+" ("+nomJoueur1+") joue :");
                     int saCase = joueur1.choisiCase(listeCase);
@@ -47,12 +46,12 @@ public class Main {
             }
 
             System.out.println("La partie est nulle");
-            regleJeu.stopJeu();
+            regleJeu.stopJeu(false, null);
         }else {
             System.out.println("Après tirage au sort,");
             System.out.println(nomJoueur2+" est le premier joueur à jouer ");
 
-            for (int i=1;i<10;i++){
+            for (int i=1;i<5;i++){
                 for (int j=1;j<2;j++){
                     System.out.println("Joueur "+nomJoueur2+" ("+joueur2.getJoueur()+") joue :");
                     int saCase2 = joueur2.choisiCase(listeCase);
@@ -67,7 +66,7 @@ public class Main {
             }
 
             System.out.println("La partie est nulle");
-            regleJeu.stopJeu();
+            regleJeu.stopJeu(false, null);
         }
     }
 }
