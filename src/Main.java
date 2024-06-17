@@ -1,9 +1,8 @@
-import classes.Case;
 import classes.Joueur;
+import classes.Plateau;
 import enumeration.typeJoueur;
 import interfaces.regleJeu;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
@@ -12,10 +11,8 @@ public class Main {
         System.out.println("*** Jeu du morpion ***");
         System.out.println("Pour gagner le jeu il faut aligner 3 cases");
 
-        //creer les cases
-        ArrayList<Case> listeCase = new ArrayList<>();
-        for (int i=1;i<10;i++)
-            listeCase.add(new Case(i, null));
+        //creer plateau
+        Plateau plateau = new Plateau();
 
         //Creer les joueurs
         String nomJoueur1 = Joueur.entreNom(typeJoueur.CROIX);
@@ -34,14 +31,18 @@ public class Main {
             for (int i=0;i<5;i++){
                 for (int j=1;j<2;j++){
                     System.out.println("Joueur "+joueur1.getJoueur()+" ("+nomJoueur1+") joue :");
-                    int saCase = joueur1.choisiCase(listeCase);
-                    joueur1.joue(listeCase.get(saCase-1), listeCase);
-                    regleJeu.verifieJeu(listeCase, joueur1.getJoueur());
+                    Plateau.afficherPlateau();
+                    int saLigne = joueur1.choisiCaseLigne();
+                    int saColonne = joueur1.choisiCaseColonne();
+                    Plateau.placerSymbole(joueur1.getJoueur(), saLigne, saColonne);
+                    regleJeu.verifieJeu(plateau, joueur1.getJoueur());
 
                     System.out.println("Joueur "+joueur2.getJoueur()+" ("+nomJoueur2+") joue :");
-                    int saCase2 = joueur2.choisiCase(listeCase);
-                    joueur2.joue(listeCase.get(saCase2-1), listeCase);
-                    regleJeu.verifieJeu(listeCase, joueur2.getJoueur());
+                    Plateau.afficherPlateau();
+                    int saLigne2 = joueur2.choisiCaseLigne();
+                    int saColonne2 = joueur2.choisiCaseColonne();
+                    Plateau.placerSymbole(joueur2.getJoueur(), saLigne2, saColonne2);
+                    regleJeu.verifieJeu(plateau, joueur2.getJoueur());
                 }
             }
             regleJeu.stopJeu(0, null);
@@ -52,14 +53,18 @@ public class Main {
             for (int i=0;i<5;i++){
                 for (int j=1;j<2;j++){
                     System.out.println("Joueur "+nomJoueur2+" ("+joueur2.getJoueur()+") joue :");
-                    int saCase2 = joueur2.choisiCase(listeCase);
-                    joueur2.joue(listeCase.get(saCase2-1), listeCase);
-                    regleJeu.verifieJeu(listeCase, joueur2.getJoueur());
+                    Plateau.afficherPlateau();
+                    int saLigne2 = joueur2.choisiCaseLigne();
+                    int saColonne2 = joueur2.choisiCaseColonne();
+                    Plateau.placerSymbole(joueur2.getJoueur(), saLigne2, saColonne2);
+                    regleJeu.verifieJeu(plateau, joueur2.getJoueur());
 
                     System.out.println("Joueur "+nomJoueur1+" ("+joueur1.getJoueur()+") joue :");
-                    int saCase = joueur1.choisiCase(listeCase);
-                    joueur1.joue(listeCase.get(saCase-1), listeCase);
-                    regleJeu.verifieJeu(listeCase, joueur1.getJoueur());
+                    Plateau.afficherPlateau();
+                    int saLigne = joueur1.choisiCaseLigne();
+                    int saColonne = joueur1.choisiCaseColonne();
+                    Plateau.placerSymbole(joueur1.getJoueur(), saLigne, saColonne);
+                    regleJeu.verifieJeu(plateau, joueur1.getJoueur());
                 }
             }
             regleJeu.stopJeu(0, null);

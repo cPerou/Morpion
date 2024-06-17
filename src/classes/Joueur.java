@@ -29,17 +29,18 @@ public class Joueur implements regleJeu {
         return nom;
     }
 
-    //le joueur choisi sa case
-    public int choisiCase(ArrayList listeCase){
-        regleJeu.visualiseJeu(listeCase);
+    //choisi numero ligne
+    public int choisiCaseLigne(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Choisissez votre numéro de case entre 1 et 9 : ");
-        int saCase = scanner.nextInt();
-        return saCase;
+        System.out.print("Choisissez votre ligne entre 1 et 3 : ");
+        int saLigne = scanner.nextInt();
+        return saLigne-1;
     }
-    // le joueur joue sa case
-    public void joue(Case caseAJouer, ArrayList listeCase){
-        caseAJouer.setQuelJoueur(joueur);
-        System.out.println("Le tour est joué"+"\n");
+    //choisi numero colonne
+    public int choisiCaseColonne(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Choisissez votre colonne entre 1 et 3 : ");
+        int saColonne = scanner.nextInt();
+        return saColonne-1;
     }
 }
