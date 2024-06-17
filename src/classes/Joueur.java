@@ -3,7 +3,6 @@ package classes;
 import enumeration.typeJoueur;
 import interfaces.regleJeu;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Joueur implements regleJeu {
@@ -30,17 +29,9 @@ public class Joueur implements regleJeu {
     }
 
     //choisi numero ligne
-    public int choisiCaseLigne(){
+    public static int choisiCase(){
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Choisissez votre ligne entre 1 et 3 : ");
-        int saLigne = scanner.nextInt();
-        return saLigne-1;
-    }
-    //choisi numero colonne
-    public int choisiCaseColonne(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Choisissez votre colonne entre 1 et 3 : ");
-        int saColonne = scanner.nextInt();
-        return saColonne-1;
+        int saCase = scanner.nextInt();
+        return saCase-1;
     }
 }

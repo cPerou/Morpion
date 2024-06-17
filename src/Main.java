@@ -14,7 +14,7 @@ public class Main {
         //creer plateau
         Plateau plateau = new Plateau();
 
-        //Creer les joueurs
+        //Creer les 2 joueurs
         String nomJoueur1 = Joueur.entreNom(typeJoueur.CROIX);
         Joueur joueur1 = new Joueur(nomJoueur1, typeJoueur.CROIX);
         String nomJoueur2 = Joueur.entreNom(typeJoueur.ROND);
@@ -32,15 +32,19 @@ public class Main {
                 for (int j=1;j<2;j++){
                     System.out.println("Joueur "+joueur1.getJoueur()+" ("+nomJoueur1+") joue :");
                     Plateau.afficherPlateau();
-                    int saLigne = joueur1.choisiCaseLigne();
-                    int saColonne = joueur1.choisiCaseColonne();
+                    System.out.println("Choisissez le numéro de ligne entre 1 et 3 :");
+                    int saLigne = joueur1.choisiCase();
+                    System.out.println("Choisissez le numéro de colonne entre 1 et 3 :");
+                    int saColonne = joueur1.choisiCase();
                     Plateau.placerSymbole(joueur1.getJoueur(), saLigne, saColonne);
                     regleJeu.verifieJeu(plateau, joueur1.getJoueur());
 
                     System.out.println("Joueur "+joueur2.getJoueur()+" ("+nomJoueur2+") joue :");
                     Plateau.afficherPlateau();
-                    int saLigne2 = joueur2.choisiCaseLigne();
-                    int saColonne2 = joueur2.choisiCaseColonne();
+                    System.out.println("Choisissez le numéro de ligne entre 1 et 3 :");
+                    int saLigne2 = joueur2.choisiCase();
+                    System.out.println("Choisissez le numéro de colonne entre 1 et 3 :");
+                    int saColonne2 = joueur2.choisiCase();
                     Plateau.placerSymbole(joueur2.getJoueur(), saLigne2, saColonne2);
                     regleJeu.verifieJeu(plateau, joueur2.getJoueur());
                 }
@@ -54,15 +58,19 @@ public class Main {
                 for (int j=1;j<2;j++){
                     System.out.println("Joueur "+nomJoueur2+" ("+joueur2.getJoueur()+") joue :");
                     Plateau.afficherPlateau();
-                    int saLigne2 = joueur2.choisiCaseLigne();
-                    int saColonne2 = joueur2.choisiCaseColonne();
+                    System.out.println("Choisissez le numéro de ligne entre 1 et 3 :");
+                    int saLigne2 = joueur2.choisiCase();
+                    System.out.println("Choisissez le numéro de colonne entre 1 et 3 :");
+                    int saColonne2 = joueur2.choisiCase();
                     Plateau.placerSymbole(joueur2.getJoueur(), saLigne2, saColonne2);
                     regleJeu.verifieJeu(plateau, joueur2.getJoueur());
 
                     System.out.println("Joueur "+nomJoueur1+" ("+joueur1.getJoueur()+") joue :");
                     Plateau.afficherPlateau();
-                    int saLigne = joueur1.choisiCaseLigne();
-                    int saColonne = joueur1.choisiCaseColonne();
+                    System.out.println("Choisissez le numéro de ligne entre 1 et 3 :");
+                    int saLigne = joueur1.choisiCase();
+                    System.out.println("Choisissez le numéro de colonne entre 1 et 3 :");
+                    int saColonne = joueur1.choisiCase();
                     Plateau.placerSymbole(joueur1.getJoueur(), saLigne, saColonne);
                     regleJeu.verifieJeu(plateau, joueur1.getJoueur());
                 }
