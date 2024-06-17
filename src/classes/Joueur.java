@@ -7,16 +7,29 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Joueur implements regleJeu {
+    private String nom;
     private typeJoueur joueur;
     //constructeur
-    public Joueur(typeJoueur joueur) {
+    public Joueur(String nom, typeJoueur joueur) {
+        this.nom = nom;
         this.joueur = joueur;
     }
+
     //getter et setter
     public typeJoueur getJoueur() {return joueur;}
+    public String getNom() {return nom;}
+
     //methode
 
-    ////////gerer le choix de case par joueur dans une methode car revient tout le temps dans le script
+    //les 2 joueurs entrent leurs noms
+    public static String entreNom(typeJoueur typeJoueur){
+        System.out.println("Entre le nom du joueur "+typeJoueur+" :");
+        Scanner scanner = new Scanner(System.in);
+        String nom = scanner.nextLine();
+        return nom;
+    }
+
+    //le joueur choisi sa case
     public int choisiCase(ArrayList listeCase){
         regleJeu.visualiseJeu(listeCase);
         Scanner scanner = new Scanner(System.in);
@@ -27,6 +40,6 @@ public class Joueur implements regleJeu {
     // le joueur joue sa case
     public void joue(Case caseAJouer, ArrayList listeCase){
         caseAJouer.setQuelJoueur(joueur);
-        System.out.println("Le tour est joué");
+        System.out.println("Le tour est joué"+"\n");
     }
 }

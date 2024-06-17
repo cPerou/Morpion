@@ -7,7 +7,9 @@ import java.util.ArrayList;
 
 public interface regleJeu {
 
-    public static void stopJeu() {System.out.println("Vous avez gagne");}
+    public static void stopJeu() {
+        System.out.println("Vous avez gagne");
+        System.exit(0);}
 
     public static void verifieJeu(ArrayList<Case> listeCase,  typeJoueur leJoueur){
         //vertical
@@ -51,9 +53,9 @@ public interface regleJeu {
         for (Case uneCase : listeCase) {
             // Afficher si la case est jouée + quel joueur + numero case
             if (uneCase.getQuelJoueur()!=null) {
-                System.out.println("La case "+ uneCase.getPosition() +" est jouée par "+ uneCase.getQuelJoueur());
+                System.out.println("La case "+uneCase.getPosition()+" est jouée par "+ uneCase.getQuelJoueur());
             } else {
-                System.out.println("La case n'est pas encore jouée");
+                System.out.println("La case "+uneCase.getPosition()+" n'est pas encore jouée");
             }
         }
     }

@@ -9,55 +9,60 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String... args){
+        //presentation du jeu
+        System.out.println("*** Jeu du morpion ***");
+        System.out.println("Pour gagner le jeu il faut aligner 3 cases");
+
         //creer les cases
         ArrayList<Case> listeCase = new ArrayList<>();
         for (int i=1;i<10;i++)
             listeCase.add(new Case(i, null));
-        System.out.println(listeCase);
 
         //Creer les joueurs
-        Joueur marc = new Joueur(typeJoueur.CROIX);
-        Joueur lucas = new Joueur(typeJoueur.ROND);
+        String nomJoueur1 = Joueur.entreNom(typeJoueur.CROIX);
+        Joueur joueur1 = new Joueur(nomJoueur1, typeJoueur.CROIX);
+        String nomJoueur2 = Joueur.entreNom(typeJoueur.ROND);
+        Joueur joueur2 = new Joueur(nomJoueur2, typeJoueur.ROND);
 
         //lance la pièce au hasard pour savoir qui commence
         Random random = new Random();
-        int quiCommence = random.nextInt(0,1);
-
-        Scanner scanner = new Scanner(System.in);
+        int quiCommence = random.nextInt(0,2);
 
         if (quiCommence == 0){
-            System.out.println("Le joueur CROIX commence"+"\n");
+            System.out.println("Après tirage au sort,");
+            System.out.println(nomJoueur1+" est le premier joueur à jouer");
 
             for (int i=1;i<10;i++){
                 for (int j=1;j<2;j++){
-                    System.out.println("Joueur marc joue");
-                    int saCase = marc.choisiCase(listeCase);
-                    marc.joue(listeCase.get(saCase), listeCase);
-                    regleJeu.verifieJeu(listeCase, marc.getJoueur());
+                    System.out.println("Joueur "+joueur1.getJoueur()+" ("+nomJoueur1+") joue :");
+                    int saCase = joueur1.choisiCase(listeCase);
+                    joueur1.joue(listeCase.get(saCase-1), listeCase);
+                    regleJeu.verifieJeu(listeCase, joueur1.getJoueur());
 
-                    System.out.println("Joueur lucas joue");
-                    int saCase2 = lucas.choisiCase(listeCase);
-                    lucas.joue(listeCase.get(saCase2), listeCase);
-                    regleJeu.verifieJeu(listeCase, lucas.getJoueur());
+                    System.out.println("Joueur "+joueur2.getJoueur()+" ("+nomJoueur2+") joue :");
+                    int saCase2 = joueur2.choisiCase(listeCase);
+                    joueur2.joue(listeCase.get(saCase2-1), listeCase);
+                    regleJeu.verifieJeu(listeCase, joueur2.getJoueur());
                 }
             }
 
             System.out.println("La partie est nulle");
             regleJeu.stopJeu();
         }else {
-            System.out.println("Le joueur ROND commence"+"\n");
+            System.out.println("Après tirage au sort,");
+            System.out.println(nomJoueur2+" est le premier joueur à jouer ");
 
             for (int i=1;i<10;i++){
                 for (int j=1;j<2;j++){
-                    System.out.println("Joueur lucas joue");
-                    int saCase2 = lucas.choisiCase(listeCase);
-                    lucas.joue(listeCase.get(saCase2+1), listeCase);
-                    regleJeu.verifieJeu(listeCase, lucas.getJoueur());
+                    System.out.println("Joueur "+nomJoueur2+" ("+joueur2.getJoueur()+") joue :");
+                    int saCase2 = joueur2.choisiCase(listeCase);
+                    joueur2.joue(listeCase.get(saCase2-1), listeCase);
+                    regleJeu.verifieJeu(listeCase, joueur2.getJoueur());
 
-                    System.out.println("Joueur marc joue");
-                    int saCase = marc.choisiCase(listeCase);
-                    marc.joue(listeCase.get(saCase+1), listeCase);
-                    regleJeu.verifieJeu(listeCase, marc.getJoueur());
+                    System.out.println("Joueur "+nomJoueur1+" ("+joueur1.getJoueur()+") joue :");
+                    int saCase = joueur1.choisiCase(listeCase);
+                    joueur1.joue(listeCase.get(saCase-1), listeCase);
+                    regleJeu.verifieJeu(listeCase, joueur1.getJoueur());
                 }
             }
 
