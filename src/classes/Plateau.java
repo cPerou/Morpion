@@ -27,6 +27,19 @@ public class Plateau {
         }
     }
 
+    public static int[] convertirCaseEnCoordonnees(int numeroCase) {
+        // Vérifier la validité du numéro de case
+        if (numeroCase < 1 || numeroCase > 9) {
+            throw new IllegalArgumentException("Numéro de case invalide : " + numeroCase);
+        }
+
+        // Calculer la ligne et la colonne
+        int ligne = (numeroCase - 1) / 3;
+        int colonne = (numeroCase - 1) % 3;
+
+        return new int[]{ligne, colonne};
+    }
+
     public static void placerSymbole(typeJoueur leJoueur, int ligne, int colonne) {
         if (ligne >= 0 && ligne < 3 && colonne >= 0 && colonne < 3 && grille[ligne][colonne] == null) {
             grille[ligne][colonne] = leJoueur;

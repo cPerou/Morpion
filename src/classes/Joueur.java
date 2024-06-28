@@ -31,6 +31,6 @@ public class Joueur implements regleJeu {
     public static int choisiCase(){
         Scanner scanner = new Scanner(System.in);
         int saCase = scanner.nextInt();
-        return saCase-1;
+        return saCase;
     }
 }
