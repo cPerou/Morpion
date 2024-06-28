@@ -1,5 +1,5 @@
 package enumeration;
 
 public enum typeJoueur {
-    CROIX, ROND
+    X, O
 }

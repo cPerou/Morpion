@@ -24,11 +24,10 @@ public class Joueur implements regleJeu {
     public static String entreNom(typeJoueur typeJoueur){
         System.out.println("Entre le nom du joueur "+typeJoueur+" :");
         Scanner scanner = new Scanner(System.in);
-        String nom = scanner.nextLine();
-        return nom;
+        return scanner.nextLine();
     }
 
-    //choisi numero ligne
+    //choisi case à jouer
     public static int choisiCase(){
         Scanner scanner = new Scanner(System.in);
         int saCase = scanner.nextInt();
